@@ -49,11 +49,6 @@ function generateMarkdown(data) {
   const licenseBadge = renderLicenseBadge(data.license);
   const licenseSection = renderLicenseSection(data.license);
 
-  const featuresList = generateList(data.features);
-  const technologiesList = generateList(data.technologies);
-  const installationList = generateList(data.installation);
-  const usageList = generateList(data.usage);
-
   return `# ${data.title}
 
 ${licenseBadge}
@@ -66,39 +61,22 @@ ${data.description}
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
+${licenseSection ? '- [License](#license)\n' : ''}
+${data.contributing ? '- [Contributing](#contributing)\n' : ''}
+${data.tests ? '- [Tests](#tests)\n' : ''}
 - [Questions](#questions)
 
 ## Installation
 
-${installationList}
+${data.installation}
 
 ## Usage
 
-${usageList}
-
-## Features
-
-${featuresList}
-
-## Technologies Used
-
-${technologiesList}
+${data.usage}
 
 ${licenseSection}
-
-## Contributing
-
-${data.contributing}
-
-## Tests
-
-${data.tests}
-
+${data.contributing ? `## Contributing\n\n${data.contributing}\n` : ''}
+${data.tests ? `## Tests\n\n${data.tests}\n` : ''}
 ## Questions
 
 For any additional questions, you can reach out to me via GitHub or email:
@@ -108,16 +86,5 @@ GitHub: [${data.github}](https://github.com/${data.github})
 Email: ${data.email}
 `;
 }
-
-// Helper function to generate a bullet point list
-function generateList(items) {
-  if (Array.isArray(items)) {
-    return items.map((item) => `- ${item}`).join('\n');
-  } else if (typeof items === 'string') {
-    return items.split(',').map((item) => `- ${item.trim()}`).join('\n');
-  }
-  return '';
-}
-
 
 module.exports = generateMarkdown;
