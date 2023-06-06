@@ -15,6 +15,7 @@ The README Generator is a command-line application that allows developers to qui
   - [License](#license)
   - [Contributing](#contributing)
   - [Tests](#tests)
+  - [Video](#video)
   - [Questions](#questions)
 
 ## Installation
@@ -63,6 +64,9 @@ Contributions are welcome! If you have any suggestions or improvements, please s
 
 ## Tests
 To run the tests for the README Generator, use the following command: `npm test`.
+
+## Video
+You can watch a video demonstration of the README Generator on [YouTube](https://www.youtube.com/watch?v=yourvideolink).
 
 ## Questions
 If you have any questions or need further assistance, feel free to reach out.
