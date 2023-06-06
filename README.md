@@ -66,7 +66,7 @@ Contributions are welcome! If you have any suggestions or improvements, please s
 To run the tests for the README Generator, use the following command: `npm test`.
 
 ## Video
-You can watch a video demonstration of the README Generator on [YouTube](https://www.youtube.com/watch?v=yourvideolink).
+You can watch a video demonstration of the README Generator on [Google Drive](https://drive.google.com/file/d/1sJ4fgvAgFuGFQW9F_kmC6f7C1yhBF5-Z/view).
 
 ## Questions
 If you have any questions or need further assistance, feel free to reach out.
