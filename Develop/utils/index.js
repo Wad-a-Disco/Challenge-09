@@ -18,12 +18,14 @@ const questions = [
   {
     type: 'input',
     name: 'installation',
-    message: 'Enter installation instructions:',
+    message: 'Enter installation instructions (comma-separated list):',
+    filter: (input) => input.split(',').map((item) => item.trim()), // Convert comma-separated string to an array
   },
   {
     type: 'input',
     name: 'usage',
-    message: 'Enter usage information:',
+    message: 'Enter usage information (comma-separated list):',
+    filter: (input) => input.split(',').map((item) => item.trim()), // Convert comma-separated string to an array
   },
   {
     type: 'input',
@@ -33,13 +35,26 @@ const questions = [
   {
     type: 'input',
     name: 'tests',
-    message: 'Enter test instructions:',
+    message: 'Enter test instructions (comma-separated list):',
+    filter: (input) => input.split(',').map((item) => item.trim()), // Convert comma-separated string to an array
   },
   {
     type: 'list',
     name: 'license',
     message: 'Choose a license for your application:',
     choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3-Clause', 'None'],
+  },
+  {
+    type: 'input',
+    name: 'features',
+    message: 'Enter the features of your project (comma-separated list):',
+    filter: (input) => input.split(',').map((item) => item.trim()), // Convert comma-separated string to an array
+  },
+  {
+    type: 'input',
+    name: 'technologies',
+    message: 'Enter the technologies used in your project (comma-separated list):',
+    filter: (input) => input.split(',').map((item) => item.trim()), // Convert comma-separated string to an array
   },
   {
     type: 'input',
@@ -74,3 +89,5 @@ function init() {
 
 // Function call to initialize app
 init();
+
+

@@ -49,6 +49,11 @@ function generateMarkdown(data) {
   const licenseBadge = renderLicenseBadge(data.license);
   const licenseSection = renderLicenseSection(data.license);
 
+  const featuresList = generateList(data.features);
+  const technologiesList = generateList(data.technologies);
+  const installationList = generateList(data.installation);
+  const usageList = generateList(data.usage);
+
   return `# ${data.title}
 
 ${licenseBadge}
@@ -61,6 +66,8 @@ ${data.description}
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
 - [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
@@ -68,11 +75,19 @@ ${data.description}
 
 ## Installation
 
-${data.installation}
+${installationList}
 
 ## Usage
 
-${data.usage}
+${usageList}
+
+## Features
+
+${featuresList}
+
+## Technologies Used
+
+${technologiesList}
 
 ${licenseSection}
 
@@ -93,5 +108,16 @@ GitHub: [${data.github}](https://github.com/${data.github})
 Email: ${data.email}
 `;
 }
+
+// Helper function to generate a bullet point list
+function generateList(items) {
+  if (Array.isArray(items)) {
+    return items.map((item) => `- ${item}`).join('\n');
+  } else if (typeof items === 'string') {
+    return items.split(',').map((item) => `- ${item.trim()}`).join('\n');
+  }
+  return '';
+}
+
 
 module.exports = generateMarkdown;
